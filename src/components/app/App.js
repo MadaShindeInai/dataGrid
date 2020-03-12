@@ -1,26 +1,35 @@
 import React from 'react';
 import './App.scss';
-import { FixedSizeList as List } from "react-window";
-import data from "../../data";
-import Row from '../row';
-import Controlls from '../controlls'
+// import { FixedSizeGrid as Grid } from 'react-window';
+// import AutoSizer from "react-virtualized-auto-sizer";
+import { data } from '../../data';
+// import Row from '../Row';
+// import Controlls from '../Controlls'
+import FullTable from '../FullTable/FullTable'
+// import TableWrapper from '../TableWrapper/TableWrapper'
 
 function App() {
-  // const Rows = data.map((item) => {
-  //   return <Row key={item.id} item={item} />
-  // });
   return (
     <div className="App">
-      <Controlls data={data} />
-      <List
-        className="List"
-        height={400}
-        itemCount={data.length}
-        itemSize={36}
-        max-width={1440}
-      >
-        {Row}
-      </List>
+      <FullTable data={data} />
+      {/* <Controlls data={arrOfTitles} />
+      <AutoSizer>
+        {({ height, width }) => (
+          <Grid
+            className='app-grid'
+            itemData={data}
+            columnCount={7}
+            columnWidth={200}
+            height={height}
+            rowCount={1000}
+            rowHeight={35}
+            width={width}
+          >
+            {Row}
+          </Grid>
+        )}
+      </AutoSizer> */}
+
     </div >
   );
 }

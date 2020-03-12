@@ -1,11 +1,11 @@
 .controlls__item {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   width: 200px;
+  height: 30px;
   padding: 0 2px;
-  overflow: hidden;
-  text-overflow: ellipsis;
   border: 1px solid black;
 }
 .controlls__search-button {

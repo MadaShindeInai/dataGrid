@@ -3,7 +3,7 @@ import './ControllsItem.scss'
 
 const ControllsItem = ({ title }) => {
   return (
-    <div className="controlls__item col-1">
+    <div className="controlls__item ">
       <span>{title}</span>
       <button type="button" onClick={() => { }} className="controlls__sort-button">&#x2191;</button>
       <button type="button" onClick={() => { }} className="controlls__sort-button">&#x2193;</button>

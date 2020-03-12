@@ -1,2 +1,7 @@
 import data from './data';
-export default data;
+import arrOfTitles from './titles';
+
+export {
+  data,
+  arrOfTitles
+};

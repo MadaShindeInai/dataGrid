@@ -1,27 +1,15 @@
 import React from 'react';
-
 import './Row.scss';
-import Cell from '../cell';
-import data from "../../data";
 
-const Row = ({ index }) => {
-
+const PADDING_SIZE = 30;
+const Row = ({ columnIndex, rowIndex, data, style }) => {
   return (
     <div className='app-row '>
-      {/* <Cell value={data[index].firstName} />
-      <Cell value={data[index].lastName} />
-      <Cell value={data[index].city} />
-      <Cell value={data[index].bool} />
-      <Cell value={data[index].email} />
-      <Cell value={data[index].number} />
-      <Cell value={data[index].word} /> */}
-      <span className="app-cell">{data[index].firstName}</span>
-      <span className="app-cell">{data[index].firstName}</span>
-      <span className="app-cell">{data[index].firstName}</span>
-      <span className="app-cell">{data[index].firstName}</span>
-      <span className="app-cell">{data[index].firstName}</span>
-      <span className="app-cell">{data[index].firstName}</span>
-      <span className="app-cell">{data[index].firstName}</span>
+      <span style={{
+        ...style,
+        top: `${parseFloat(style.top) + PADDING_SIZE}px`
+      }
+      } className="app-cell">{data[rowIndex][`${columnIndex}`]}</span>
     </div>
   )
 }

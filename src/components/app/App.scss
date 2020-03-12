@@ -2,6 +2,21 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  max-width: 1400px;
+  width: auto;
+  height: 700px;
   margin: 0 auto;
+}
+.app-row {
+  display: flex;
+  justify-content: space-evenly;
+}
+.app-cell {
+  display: block;
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid black;
+}
+.app-grid {
+  max-width: 1420px !important;
 }
