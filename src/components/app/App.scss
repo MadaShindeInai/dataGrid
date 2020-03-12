@@ -1,10 +1,8 @@
-.App {
+.app {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  width: auto;
   height: 700px;
-  margin: 0 auto;
 }
 .app-row {
   display: flex;
@@ -19,4 +17,8 @@
 }
 .app-grid {
   max-width: 1420px !important;
+}
+.wrapper {
+  width: 1440px;
+  margin: 0 auto;
 }
