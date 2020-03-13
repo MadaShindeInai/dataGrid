@@ -11,7 +11,7 @@ function Fulltable({ data }) {
         <Grid
           className='app-grid'
           itemData={data}
-          columnCount={7}
+          columnCount={8}
           columnWidth={200}
           innerElementType={TableWrapper}
           height={height}

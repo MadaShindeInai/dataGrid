@@ -3,6 +3,7 @@ import './Row.scss';
 
 const PADDING_SIZE = 30;
 const Row = ({ columnIndex, rowIndex, data, style }) => {
+
   return (
     <div className='app-row '>
       <span style={{
