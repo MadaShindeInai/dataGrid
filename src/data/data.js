@@ -13,7 +13,7 @@ for (let i = 0; i < 1000; i += 1) {
     4: faker.internet.email(),
     5: faker.random.number(),
     6: faker.lorem.word(),
-    7: true
+    7: false
   });
 }
 

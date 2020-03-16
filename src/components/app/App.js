@@ -1,17 +1,15 @@
 import React from 'react';
 import './App.scss';
 import { data } from '../../data';
-import FullTable from '../FullTable/FullTable'
+import FullTable from '../FullTable'
 
-function App() {
+const App = () => {
   return (
     <div className="wrapper">
       <div className="app">
         <FullTable data={data} />
       </div>
-
-
-    </div >
+    </div>
   );
 }
 
