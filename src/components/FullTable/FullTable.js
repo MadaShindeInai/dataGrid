@@ -11,7 +11,14 @@ function FullTable({ value, inputValue, setValue, clearInput, searchInAllTable }
   const objLength = Object.keys(value[0]).length;
   return (
     <>
-      <input type='text' value={inputValue} onChange={(event) => setValue(event.target.value)} />
+      <input
+        placeholder="enter your request here <<<<-------------"
+        type='text'
+        value={inputValue}
+        onChange={(event) => setValue(event.target.value)}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter') searchInAllTable()
+        }} />
       <button
         type='button'
         onClick={() => {

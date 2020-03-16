@@ -71,7 +71,8 @@ const reducer = (state = initialState, action) => {
     case 'SEARCH_IN_ALL_TABLE':
       return {
         ...state,
-        data: filterFullTableData(state, action)
+        data: filterFullTableData(state, action),
+        arrOfTitles
       };
 
     default:

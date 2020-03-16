@@ -54,27 +54,17 @@ const filterFullTableData = (state) => {
   for (let i = 0; i < 7; i += 1) {
     resultArr.push(...data.filter((item) => item[i].toString().toLowerCase().indexOf(state.inputValue.toLowerCase()) > -1));
   }
-  // // const result = [];
-  // // for (let i = 0; i < resultArr.length; i += 1) {
-  // //   if (!result.includes(result[2])) {
-  // //     return JSON.stringify(obj1)===JSON.stringify(obj2);
-  // //     result.push(obj);
+  const result = [];
+  for (let i = 0; i < resultArr.length; i += 1) {
+    if (resultArr.indexOf(resultArr[i]) === i) {
+      result.push(resultArr[i]);
 
-  // //   }
-  // // }
-
-  // console.log('resultArr', resultArr);
-
-  // const arr = resultArr.map((obj, index, array) => {
-  //   // console.log('array[array.indexOf(obj)]', array[array.indexOf(obj)][4]);
-  //   // console.log('array[index][4]', array[index][4]);
-  //   // return array[array.indexOf(obj[4])][4] !== array[index][4]
-  // })
-  // console.log('arr', arr);
-
-  return resultArr;
-  // return arr
-
+    }
+  }
+  if (!result.length) {
+    result.push({ 0: 'wr', 1: 'o', 2: 'ng', 3: 're', 4: 'que', 5: 0, 6: 'st', 7: '!' });
+  }
+  return result;
 }
 
 export {
