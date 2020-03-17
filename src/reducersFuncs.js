@@ -1,5 +1,18 @@
 import { data } from './data'
 
+const deleteRow = (state) => {
+
+  const result = state.data.filter((item) => {
+    const { length } = Object.keys(item);
+    return item[length - 1] !== true;
+  })
+  if (!result.length) {
+    result.push({ 0: 'Type', 1: 'another', 2: 'request!', 3: 'We', 4: 'found', 5: 0, 6: 'results.', 7: '!' });
+  }
+  return result;
+
+}
+
 const newStateColumn = (state, action) => state.data.map((item) => {
   const keys = Object.keys(item);
   const values = Object.values(item);
@@ -84,4 +97,5 @@ export {
   newStateFiltered,
   filterFullTableData,
   filterBooleanData,
+  deleteRow
 } 

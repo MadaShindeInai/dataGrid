@@ -6,6 +6,7 @@ import {
   newStateSortDown,
   newStateFiltered,
   filterBooleanData,
+  deleteRow
 } from './reducersFuncs';
 
 const initialState = {
@@ -21,11 +22,8 @@ const reducer = (state = initialState, action) => {
     case 'DELETE_ROW':
       return {
         ...state,
-        data: state.data.filter((item) => {
-          const { length } = Object.keys(item);
-          return item[length - 1] !== true;
-        })
-      }
+        data: deleteRow(state, action)
+      };
 
     case 'DELETE_COLUMN':
       return {
