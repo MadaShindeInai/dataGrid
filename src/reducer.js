@@ -1,11 +1,19 @@
 import { data, arrOfTitles } from './data';
-import { newStateColumn, filterFullTableData, newStateSortUp, newStateSortDown, newStateFiltered } from './reducersFuncs';
+import {
+  newStateColumn,
+  filterFullTableData,
+  newStateSortUp,
+  newStateSortDown,
+  newStateFiltered,
+  filterBooleanData,
+} from './reducersFuncs';
 
 const initialState = {
   data,
   arrOfTitles,
   inputValue: ''
 };
+
 const reducer = (state = initialState, action) => {
 
   switch (action.type) {
@@ -21,8 +29,9 @@ const reducer = (state = initialState, action) => {
 
     case 'DELETE_COLUMN':
       return {
+        ...state,
         data: newStateColumn(state, action),
-        arrOfTitles: state.arrOfTitles.filter((item, index) => index !== action.payload ? item : null)
+        arrOfTitles: state.arrOfTitles.filter((item, index) => index !== action.payload ? item : '')
       };
 
     case 'SWITCH_CHECKBOX_STATUS':
@@ -58,7 +67,8 @@ const reducer = (state = initialState, action) => {
     case 'FILTER_VALUE':
       return {
         ...state,
-        data: newStateFiltered(state, action)
+        data: newStateFiltered(state, action),
+        arrOfTitles
       };
 
     case 'CLEAR_INPUT':
@@ -75,6 +85,18 @@ const reducer = (state = initialState, action) => {
         arrOfTitles
       };
 
+    case 'FILTER_BOOLEAN':
+      return {
+        ...state,
+        data: filterBooleanData(state, action),
+        arrOfTitles
+      };
+    case 'RETURN_ALL_BOOLEAN':
+      return {
+        ...state,
+        data,
+        arrOfTitles
+      };
     default:
       return state
   }

@@ -2,33 +2,34 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import './Row.scss';
+import { Switch } from 'antd';
 import { connect } from 'react-redux';
 import * as actions from '../../actions'
 
-const PADDING_SIZE = 30;
+const PADDING_SIZE = 60;
 const Row = ({ columnIndex, rowIndex, value, style, switchStatus }) => {
 
   return (
-    <span
+    <div
       style={{
         ...style,
         top: `${parseFloat(style.top) + PADDING_SIZE}px`
       }}
-      className={value[rowIndex][Object.keys(value[0]).length - 1] ? 'app-cell' : 'app-cell2'}
-      onClick={() => switchStatus(rowIndex)}
+      className={value[rowIndex][Object.keys(value[0]).length - 1] ? `app-cell column${columnIndex.toString()}` : `app-cell2 column${columnIndex.toString()}`}
     >
       {columnIndex === Object.keys(value[0]).length - 1
-        ? <div>
-          <input
-            onChange={() => switchStatus(rowIndex)}
-            checked={value[rowIndex][columnIndex]}
-            id={rowIndex}
-            type='checkbox' />
-          <span>Click to choose a row</span>
-        </div>
-        : value[rowIndex][columnIndex]
+        ? <Switch
+          className="app-cell__checkbox"
+          onChange={() => switchStatus(rowIndex)}
+          checked={value[rowIndex][columnIndex]}
+          id={rowIndex}
+          type='checkbox' />
+        : <span
+          className="app-cell__text"
+          onClick={() => switchStatus(rowIndex)}
+        >{value[rowIndex][columnIndex]}</span>
       }
-    </span>
+    </div>
   )
 }
 const mapStateToProps = (state) => {

@@ -44,7 +44,12 @@
     "no-console": "off",
     "react/prop-types": 0,
     "react/prefer-stateless-function": 0,
-    "prettier/prettier": 0
+    "prettier/prettier": 0,
+    "consistent-return": 0,
+    "react/jsx-props-no-spreading": 0,
+    "array-callback-return": 0,
+    "no-param-reassign": 0,
+    "no-underscore-dangle": 0
   },
   "globals": {
     "window": true,

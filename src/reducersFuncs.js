@@ -1,5 +1,3 @@
-/* eslint-disable array-callback-return */
-/* eslint-disable consistent-return */
 import { data } from './data'
 
 const newStateColumn = (state, action) => state.data.map((item) => {
@@ -44,7 +42,7 @@ const newStateFiltered = (state, action) => {
   }
   const newState11 = data.filter((item) => item[action.payload].toString().toLowerCase().indexOf(state.inputValue.toLowerCase()) > -1);
   if (!newState11.length) {
-    newState11.push({ 0: 'wr', 1: 'o', 2: 'ng', 3: 're', 4: 'que', 5: 0, 6: 'st', 7: '!' });
+    newState11.push({ 0: 'Type', 1: 'another', 2: 'request!', 3: 'false', 4: 'que', 5: 0, 6: 'st', 7: '!' });
   }
   return newState11;
 }
@@ -62,9 +60,21 @@ const filterFullTableData = (state) => {
     }
   }
   if (!result.length) {
-    result.push({ 0: 'wr', 1: 'o', 2: 'ng', 3: 're', 4: 'que', 5: 0, 6: 'st', 7: '!' });
+    result.push({ 0: 'Type', 1: 'another', 2: 'request!', 3: 'We', 4: 'found', 5: 0, 6: 'results.', 7: '!' });
   }
   return result;
+}
+
+const filterBooleanData = (state, action) => {
+  const newState12 = data.filter((item) => {
+    console.log(action.id);
+
+    return item[3] === action.payload
+  });
+  if (!newState12.length) {
+    newState12.push({ 0: 'Type', 1: 'another', 2: 'request!', 3: 'false', 4: 'que', 5: 0, 6: 'st', 7: '!' });
+  }
+  return newState12;
 }
 
 export {
@@ -72,5 +82,6 @@ export {
   newStateSortUp,
   newStateSortDown,
   newStateFiltered,
-  filterFullTableData
+  filterFullTableData,
+  filterBooleanData,
 } 

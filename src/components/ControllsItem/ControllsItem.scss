@@ -1,26 +1,54 @@
 .controlls__item {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  width: 200px;
-  height: 30px;
-  padding: 0 2px;
-  border: 1px solid black;
+  width: 170px;
+  height: 60px;
+  background-color: #e6f7ff;
+  border: 1px solid #bae7ff;
+}
+.controlls__title {
+  margin-bottom: 3px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.controlls__buttons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 }
 .controlls__search-button {
   width: 20px;
-  height: 20px;
-  background-image: url(../../assets/images/UIF-121-512.png);
-  background-size: cover;
+  padding: 0;
+  background-color: #e6f7ff;
   border: none;
+  outline: none;
   cursor: pointer;
 }
-
 .controlls__sort-button {
+  background-color: #e6f7ff;
+  border: none;
+  outline: none;
   cursor: pointer;
 }
 .controlls__sort-button2 {
-  background-color: red;
+  color: #096dd9;
+  background-color: #e6f7ff;
+  border: none;
+  outline: none;
   cursor: pointer;
+}
+
+.controlls__search-button.all {
+  font-size: 14px;
+}
+
+.controlls__search-button:hover,
+.controlls__sort-button:hover,
+.controlls__sort-button2:hover {
+  color: #096dd9;
+  cursor: pointer;
+  transition: all 300ms ease;
 }

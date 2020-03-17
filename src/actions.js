@@ -49,3 +49,15 @@ export const searchInAllTable = () => {
     type: 'SEARCH_IN_ALL_TABLE',
   }
 }
+export const filterBoolean = (id, payload) => {
+  return {
+    type: 'FILTER_BOOLEAN',
+    payload,
+    id
+  }
+}
+export const returnFullBoolean = () => {
+  return {
+    type: 'RETURN_ALL_BOOLEAN',
+  }
+}

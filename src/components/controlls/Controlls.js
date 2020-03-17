@@ -12,7 +12,7 @@ const Controlls = ({ titles, delRow }) => {
         return <ControllsItem key={item} valueV={valueV} setValueV={setValueV} id={index} title={item} />
       })}
       <div className="controlls__item ">
-        <button type="button" onClick={delRow} className="controlls__sort-button">Delete rows</button>
+        <button type="button" onClick={delRow} className="controlls__delete-button">Delete rows</button>
       </div>
     </div>
   )

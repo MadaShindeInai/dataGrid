@@ -2,8 +2,6 @@ import faker from 'faker';
 
 const data = [];
 
-
-
 for (let i = 0; i < 1000; i += 1) {
   data.push({
     0: faker.name.firstName(),
