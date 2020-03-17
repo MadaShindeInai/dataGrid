@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FixedSizeGrid as Grid } from 'react-window';
 import AutoSizer from "react-virtualized-auto-sizer";
 import { Input, Button } from 'antd';
@@ -11,12 +11,17 @@ import TableWrapper from '../TableWrapper';
 import * as actions from '../../actions';
 
 function FullTable({ value, arrOfTitles, inputValue, setValue, clearInput, searchInAllTable }) {
-  const csvData = [Object.values(arrOfTitles)];
+  // const [csvData, setcsvData] = useState([]);
+  const [isUpload, setIsUpload] = useState(false);
+  const data = [Object.values(arrOfTitles)];
   value.map((item) => {
     const tempArr = Object.values(item);
     tempArr.pop();
-    csvData.push(tempArr);
+    data.push(tempArr);
   })
+
+
+
 
   const objLength = Object.keys(value[0]).length;
   return (
@@ -46,16 +51,27 @@ function FullTable({ value, arrOfTitles, inputValue, setValue, clearInput, searc
           }}>
           Clear
           </Button>
-        <CSVLink
-          type="primary" shape="round"
-          className="header__download-button"
-          data={csvData}
-          separator=" | "
-          enclosingCharacter={`'`}
-          filename="table.csv">
-          <DownloadOutlined />
-          CSV
+        <Button type="primary"
+          className="header__button clear"
+          onClick={() => {
+            setIsUpload(true)
+          }}>
+          Generate CSV
+          </Button>
+        {isUpload &&
+          <CSVLink
+            className="header__download-button"
+            onClick={() => {
+              setIsUpload(false)
+            }}
+            data={data}
+            separator=" | "
+            enclosingCharacter={`'`}
+            filename="table.csv">
+            <DownloadOutlined />
+          Here is your link to download
           </CSVLink>
+        }
       </div>
       <AutoSizer>
         {({ height, width }) => (

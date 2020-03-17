@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import './Row.scss';
-import { Switch } from 'antd';
 import { connect } from 'react-redux';
 import * as actions from '../../actions'
 
@@ -18,7 +17,7 @@ const Row = ({ columnIndex, rowIndex, value, style, switchStatus }) => {
       className={value[rowIndex][Object.keys(value[0]).length - 1] ? `app-cell column${columnIndex.toString()}` : `app-cell2 column${columnIndex.toString()}`}
     >
       {columnIndex === Object.keys(value[0]).length - 1
-        ? <Switch
+        ? <input
           className="app-cell__checkbox"
           onChange={() => switchStatus(rowIndex)}
           checked={value[rowIndex][columnIndex]}
