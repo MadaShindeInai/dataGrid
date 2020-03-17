@@ -24,7 +24,7 @@ function FullTable({ value, arrOfTitles, inputValue, setValue, clearInput, searc
       <div className="header">
         <Input
           className="header__search-input"
-          placeholder="Search..."
+          placeholder="Search....."
           type='text'
           value={inputValue}
           onChange={(event) => setValue(event.target.value)}
